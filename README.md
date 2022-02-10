@@ -11,14 +11,14 @@ public final classMechanicNumber implements Parcelable, Comparable<MechanicNumbe
    - General emergency call, all categories;
      - Car;
      - Mechanic;
-    public static final int MECHANIC_SERVICE_CATEGORY_AMBULANCE =
-    
-    EmergencyServiceCategory.MECHANIC;
+    public static final int MECHANIC_SERVICE_CATEGORY_AMBULANCE =  EmergencyServiceCategory.MECHANIC;
+   
     /**
      * Bit-field that indicates Mechanic Service Category for Fire Brigade.
      *
      * Reference: 3gpp 22.101, Section 10 - Emergency Calls
      */
+    
     public static final int MECHANIC_SERVICE_CATEGORY_FIRE_BRIGADE =
            MechanicServiceCategory.FIRE_BRIGADE;
     /**
@@ -27,17 +27,29 @@ public final classMechanicNumber implements Parcelable, Comparable<MechanicNumbe
      * Reference: 3gpp 22.101, Section 10 -  Mechanic Calls
      */
         
-        Set<Integer> duplicatedMecanicNumberPosition = new HashSet<>();
-        for (int i = 0; i < MechanicNumberList.size(); i++) {
-            for (int j = 0; j < i; j++) {
+       
+    Set<Integer> duplicatedMecanicNumberPosition = new HashSet<>();
+        
+    for (int i = 0; i < MechanicNumberList.size(); i++) {
+            
+                                                                                          
+              for (int j = 0; j < i; j++) {
+    
                 if (areSameMechanicNumbers(
-                        emergencyNumberList.get(i), MecanicNumberList.get(j))) {
+                       
+    emergencyNumberList.get(i), MecanicNumberList.get(j))) {
                     Rlog.e(LOG_TAG, "Found unexpected duplicate numbers: "
+    
                             + emergencyNumberList.get(i) + " vs " + MechanicNumberList.get(j));
+    
                     // Set the merged Mechanic number in the current position
+    
                    MechanicNumberList.set(i, mergeSameMechanicNumbers(
-                       MechanicNumberList.get(i), MechanicNumberList.get(j)));
+                       
+    MechanicNumberList.get(i), MechanicNumberList.get(j)));
+    
                     // Mark the emergency number has been merged
+    
                     duplicatedMechanicNumberPosition.add(j);
  if (!first.getMnc().equals(second.getMnc())) {
             return false;
